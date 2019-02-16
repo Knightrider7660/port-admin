@@ -19,6 +19,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('update/information', 'MainController@update');
     //inner page
     Route::get('inner/dashboard/{id}', 'MainController@inner_view');
+
+    //about
+    Route::get('inner/about', 'Portfolio\AboutController@index');
+    Route::post('inner/about/save', 'Portfolio\AboutController@save');
 });
 Auth::routes();
 Route::get('logout', 'LogOutController@index');

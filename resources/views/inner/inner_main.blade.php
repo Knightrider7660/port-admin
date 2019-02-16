@@ -1,6 +1,6 @@
 @extends('layouts.masterinner')
 @section('title')
-    {{$table->name}}
+    Home
 @endsection
 
 @section('content')

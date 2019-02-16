@@ -89,7 +89,6 @@
 <script src="{{asset('public/dist/js/app.min.js')}}"></script>
 
 @yield('script')
-
 <script src="{{asset('public/custom.js')}}"></script>
 
 

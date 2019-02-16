@@ -9,7 +9,7 @@
             <li class=""><a href="{{action('MainController@index')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="navigation-divider"></li>
 
-            <li class=""><a href="#"><i class="fa fa-info"></i> <span>About</span></a></li>
+            <li class="{{ (Request::is('inner/about') ? 'active' : '') }}"><a href="{{action('Portfolio\AboutController@index')}}"><i class="fa fa-info"></i> <span>About</span></a></li>
             <li class="navigation-divider"></li>
 
             <li class=""><a href="#"><i class="fa fa-graduation-cap"></i> <span>Education</span></a></li>
