@@ -14,7 +14,10 @@ class CreateBlogCatsTable extends Migration
     public function up()
     {
         Schema::create('blog_cats', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('categoryID');
+            $table-> string('name',100);
+            $table->integer('userID')->nullable()->unsigned()->index();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('No Action');
             $table->timestamps();
         });
     }

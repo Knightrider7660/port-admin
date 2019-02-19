@@ -14,7 +14,11 @@ class CreateTestimonialsTable extends Migration
     public function up()
     {
         Schema::create('testimonials', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('testimonialID');
+            $table->string('imageName',200)->nullable();
+            $table->text('description')->nullable();
+            $table->integer('userID')->unsigned()->index();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('No Action');
             $table->timestamps();
         });
     }

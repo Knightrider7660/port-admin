@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\File;
 
 class MainController extends Controller
 {
@@ -25,6 +26,12 @@ class MainController extends Controller
 
             //image upload
             if ($request->hasFile('imageName')) {
+                
+                // previous file delete
+                if(file_exists(public_path('profile/user/'.$user->imageName))){
+                    unlink(public_path('profile/user/'.$user->imageName));
+                }
+                // previous file delete
 
                 $extnshon = $request->imageName->extension();
                 $filename =  md5(date('Y-m-d H:i:s'));
@@ -45,7 +52,11 @@ class MainController extends Controller
 
             //image upload
             if ($request->hasFile('imageName')) {
-
+                // previous file delete
+                if(file_exists(public_path('profile/user/'.$user->imageName))){
+                    unlink(public_path('profile/user/'.$user->imageName));
+                }
+                // previous file delete
                 $extnshon = $request->imageName->extension();
                 $filename =  md5(date('Y-m-d H:i:s'));
                 $filename = $filename.'.'.$extnshon;

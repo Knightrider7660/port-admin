@@ -14,7 +14,10 @@ class CreateClientListsTable extends Migration
     public function up()
     {
         Schema::create('client_lists', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('clientID');
+            $table->string('ImageName',100)->nullable();
+            $table->integer('userID')->nullable()->unsigned()->index();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('No Action');
             $table->timestamps();
         });
     }

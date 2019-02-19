@@ -14,7 +14,12 @@ class CreateServicessesTable extends Migration
     public function up()
     {
         Schema::create('servicesses', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('serviceID');
+            $table->string('name',200)->nullable();
+            $table->string('icon',100)->nullable();
+            $table->text('description')->nullable();
+            $table->integer('userID')->unsigned()->index();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('No Action');
             $table->timestamps();
         });
     }

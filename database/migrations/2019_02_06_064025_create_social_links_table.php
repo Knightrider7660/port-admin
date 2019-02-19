@@ -14,7 +14,11 @@ class CreateSocialLinksTable extends Migration
     public function up()
     {
         Schema::create('social_links', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('socialID');
+            $table->string('link',200)->nullable();
+            $table->string('icon_code',100)->nullable();
+            $table->integer('userID')->unsigned()->index();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('No Action');
             $table->timestamps();
         });
     }

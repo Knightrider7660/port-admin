@@ -26,9 +26,9 @@
                                 <img src="{{asset('public/profile/user/user.png')}}" alt="Sukanta">
                                 @endif
                                 <h3>{{$user->name}}</h3>
-                                <h4>Jr. Software Developer</h4>
-                                <h4>Infinity Flame Soft</h4>
-                                <h4>Bandar Bazar, Sylhet, Bangladesh</h4>
+                                <h4>{{$user->position}}</h4>
+                                <h4>{{$user->company}}</h4>
+                                <h4>{{$user->address}}</h4>
                                 <a class="btn btn-sm btn-info pr-2 pl-2 mt-10" href="{{action('MainController@inner_view',['id'=>$user->id])}}"><i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>

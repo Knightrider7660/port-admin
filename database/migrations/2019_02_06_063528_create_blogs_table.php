@@ -14,7 +14,14 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('blogID');
+            $table->string('title');
+            $table->longText('description')->nullable();
+            $table->string('imageName',100)->nullable();
+            $table->integer('userID')->nullable()->unsigned()->index();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('No Action');
+            $table->integer('categoryID')->unsigned()->index();
+            $table->foreign('categoryID')->references('categoryID')->on('blog_cats')->onDelete('cascade')->onUpdate('No Action');
             $table->timestamps();
         });
     }
