@@ -25,8 +25,9 @@
                         </div><br/>
                         <div class="input-group">
                             <span class="input-group-addon">Image</span>
-                            <input style="padding-bottom: 40px;" name="imageName" class="form-control" type="file">
+                            <input style="padding-bottom: 40px;" name="imageName" class="form-control" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" type="file">
                         </div><br/>
+                        <img id="blah" alt="your image" width="300" height="200" />
 
                     </div>
 
@@ -47,7 +48,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Edit Accessories Category</h4>
                 </div>
-                <form id="ediCategoryForm" action="#" method="post" enctype="multipart/form-data" autocomplete="off">
+                <form id="ediCategoryForm" action="{{action('Portfolio\AboutController@edit')}}" method="post" enctype="multipart/form-data" autocomplete="off">
                     {!! csrf_field() !!}
                     <input type="hidden" name="id">
                     <div class="modal-body">
@@ -66,8 +67,12 @@
                         </div><br/>
                         <div class="input-group">
                             <span class="input-group-addon">Image</span>
-                            <input style="padding-bottom: 40px;" name="image" class="form-control" type="file">
+                            <input style="padding-bottom: 40px;" name="imageName" class="form-control" onchange="document.getElementById('update').src = window.URL.createObjectURL(this.files[0])" type="file">
                         </div><br/>
+
+                        @if($row->imageName != null)
+                            <img id="update" src="{{asset('public/uploads/about/'.$row->imageName)}}" alt="your image" width="300" height="200" />
+                         @endif
 
                     </div>
 

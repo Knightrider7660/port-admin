@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\About;
+use App\Educations;
+use App\Skills;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
@@ -32,6 +34,18 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         About::creating(function($model)
+        {
+            $userid = (!Auth::guest()) ? Auth::user()->id : null ;
+            $model->userID = $userid;
+        });
+
+        Educations::creating(function($model)
+        {
+            $userid = (!Auth::guest()) ? Auth::user()->id : null ;
+            $model->userID = $userid;
+        });
+
+        Skills::creating(function($model)
         {
             $userid = (!Auth::guest()) ? Auth::user()->id : null ;
             $model->userID = $userid;

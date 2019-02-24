@@ -45,7 +45,7 @@
                             <td>{{$row->position}}</td>
                             <td>{{str_limit($row->description_1,50,'...')}}</td>
                             <td>{{str_limit($row->description_2,50,'...')}}</td>
-                            <td class="text-center"><button data-id="" data-name="" class="btn btn-xs btn-flat btn-success ediModal"  data-toggle="modal" data-target="#categoryEdiModal">Edit</button></td>
+                            <td class="text-center"><button data-id="{{$row->aboutID}}" data-name="{{$row->position}}" data-des1="{{$row->description_1}}" data-des2="{{$row->description_2}}" data-img="{{$row->imageName}}" class="btn btn-xs btn-flat btn-success ediModal"  data-toggle="modal" data-target="#categoryEdiModal">Edit</button></td>
                             <td class="text-right"><a href="#" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></td>
                         </tr>
                     @endforeach
@@ -62,9 +62,15 @@
             $('.ediModal').click(function () {
                 var id = $(this).data('id');
                 var name = $(this).data('name');
+                var des1 = $(this).data('des1');
+                var des2 = $(this).data('des2');
+                var img = $(this).data('img');
 
                 $('#ediCategoryForm [name=id]').val(id);
-                $('#ediCategoryForm [name=name]').val(name);
+                $('#ediCategoryForm [name=position]').val(name);
+                $('#ediCategoryForm [name=description_1]').val(des1);
+                $('#ediCategoryForm [name=description_2]').val(des2);
+                $('#ediCategoryForm [name=image]').val(img);
 
             });
         });

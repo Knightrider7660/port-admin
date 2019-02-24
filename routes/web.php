@@ -23,6 +23,25 @@ Route::group(['middleware' => 'auth'], function () {
     //about
     Route::get('inner/about', 'Portfolio\AboutController@index');
     Route::post('inner/about/save', 'Portfolio\AboutController@save');
+    Route::post('inner/about/edit', 'Portfolio\AboutController@edit');
+
+    //education
+    Route::get('inner/education', 'Education\EducationController@index');
+    Route::post('inner/education/save', 'Education\EducationController@save');
+    Route::post('inner/education/edit', 'Education\EducationController@edit');
+    Route::get('inner/education/del/{id}', 'Education\EducationController@del');
+
+    //experience
+    Route::get('inner/experience', 'Experience\ExperienceController@index');
+    Route::post('inner/experience/save', 'Experience\ExperienceController@save');
+    Route::post('inner/experience/edit', 'Experience\ExperienceController@edit');
+    Route::get('inner/experience/del/{id}', 'Experience\ExperienceController@del');
+
+    //skill
+    Route::get('inner/skill', 'Skill\SkillController@index');
+    Route::post('inner/skill/save', 'Skill\SkillController@save');
+    Route::post('inner/skill/edit', 'Skill\SkillController@edit');
+    Route::get('inner/skill/del/{id}', 'Skill\SkillController@del');
 });
 Auth::routes();
 Route::get('logout', 'LogOutController@index');
