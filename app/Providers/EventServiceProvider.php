@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\About;
 use App\Educations;
+use App\Experiences;
 use App\Skills;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,11 @@ class EventServiceProvider extends ServiceProvider
         });
 
         Skills::creating(function($model)
+        {
+            $userid = (!Auth::guest()) ? Auth::user()->id : null ;
+            $model->userID = $userid;
+        });
+        Experiences::creating(function($model)
         {
             $userid = (!Auth::guest()) ? Auth::user()->id : null ;
             $model->userID = $userid;

@@ -31,8 +31,11 @@
                         </div><br/>
                         <div class="input-group">
                             <span class="input-group-addon">Image</span>
-                            <input style="padding-bottom: 40px;" name="imageName" class="form-control" type="file">
+                            <input style="padding-bottom: 40px;" name="imageName" class="form-control" onchange="document.getElementById('update').src = window.URL.createObjectURL(this.files[0])" type="file">
                         </div><br/>
+                        @if($user->imageName != null)
+                            <img id="update" src="{{asset('public/profile/user/'.$user->imageName)}}" alt="your image" width="300" height="200" />
+                        @endif
 
                     </div>
 

@@ -1,5 +1,5 @@
 @extends('layouts.masterinner')
-@extends('box.education.education')
+@extends('box.experience.experience')
 
 @section('title')
     Experience
@@ -55,7 +55,7 @@
                 var institution = $(this).data('institution');
 
                 $('#ediCategoryForm [name=id]').val(id);
-                $('#ediCategoryForm [name=name]').val(name);
+                $('#ediCategoryForm [name=position]').val(name);
                 $('#ediCategoryForm [name=institution]').val(institution);
 
             });
